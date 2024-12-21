@@ -97,6 +97,7 @@ class OrderWidget extends StatelessWidget {
                         fontWeight: FontWeight.w500,
                       ),
                     ),
+                    //untuk label text
                     Text(
                       dataCheckout.status == "0"
                           ? "Baru"

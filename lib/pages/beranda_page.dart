@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:syn_laundry/models/Product_model.dart';
+import 'package:syn_laundry/pages/info_pesanan_page.dart';
 import 'package:syn_laundry/services/product_services.dart';
 import 'package:syn_laundry/themes/themes.dart';
 import 'package:syn_laundry/widgets/product_widget.dart';
+import 'package:get/get.dart';
 
 class BerandaPage extends StatelessWidget {
   const BerandaPage({super.key});
@@ -130,11 +132,18 @@ class BerandaPage extends StatelessWidget {
                             var index = snapshot.data!.indexOf(dataProduct);
 
                             return Container(
-                              margin: EdgeInsets.only(left: index > 0 ? 12 : 0),
-                              child: ProductWidget(
-                                productModel: dataProduct,
-                              ),
-                            );
+                                margin:
+                                    EdgeInsets.only(left: index > 0 ? 12 : 0),
+                                child: GestureDetector(
+                                  onTap: () {
+                                    Get.to(InfoPesananPage(
+                                      dataProduct: dataProduct,
+                                    ));
+                                  },
+                                  child: ProductWidget(
+                                    productModel: dataProduct,
+                                  ),
+                                ));
                           })
                         ],
                       );
